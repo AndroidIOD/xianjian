@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:padding="8dp" >
+
+        <TextView
+            android:id="@+id/tv_mytopictitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:lines="1"
+            android:text="仙剑圈圈APP签到中奖说明"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/tv_mytopicdetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:lines="2"
+            android:paddingTop="8dp"
+            android:text="仙剑圈圈APP签到中奖说明仙剑圈圈APP签到中奖说明仙剑圈圈APP签到中奖说明仙剑圈圈APP签到中奖说明"
+            android:textColor="#8A8A8A" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="12dp"
+            android:background="#F5F5F5" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/xh" />
+
+            <TextView
+                android:id="@+id/tv_xianhuashu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="2.7万"
+                android:textColor="#C5C5C5" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="13dp"
+                android:src="@drawable/zd" />
+
+            <TextView
+                android:id="@+id/tv_eggshu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_weight="1"
+                android:text="0"
+                android:textColor="#C5C5C5" />
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_marginLeft="13dp"
+                android:src="@drawable/huifu" />
+
+            <TextView
+                android:id="@+id/tv_huifushu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:text="3128"
+                android:textColor="#C5C5C5" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:color/black" >
+        <!-- 随便一个添加的图片，到时候改了即可啦  阿拉啦啦啦啦啦啦 -->
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="游戏圈子"
+            android:textColor="#fff"
+            android:textSize="22sp" />
+
+        <ImageButton
+            android:id="@+id/ib_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@null"
+            android:src="@drawable/search" />
+
+        <ImageButton
+            android:id="@+id/ib_inform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/ib_search"
+            android:background="@null"
+            android:src="@drawable/inform" />
+    </RelativeLayout>
+      
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+<!-- 添加按钮 -->
+            <com.cyld.lfcircle.ui.RoundImageView
+                android:id="@+id/ib_bagua"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                />
+            <!--  android:src="@drawable/home_press" -->
+
+            <TextView
+                android:id="@+id/tv_bagua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                
+                android:textColor="#000" />
+          <!--   android:text="hahahha" -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.cyld.lfcircle.ui.RoundImageView
+                android:id="@+id/ib_danji"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@null"
+                 />
+           <!--  android:src="@drawable/home_press" -->
+
+            <TextView
+                android:id="@+id/tv_danji"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                
+                android:textColor="#000" />
+           <!--  android:text="单机游戏" -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.cyld.lfcircle.ui.RoundImageView
+                android:id="@+id/ib_tongren"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@null"
+                />
+           <!--  android:src="@drawable/home_press"  -->
+
+            <TextView
+                android:id="@+id/tv_tongren"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+             
+                android:textColor="#000" />
+             <!--   android:text="同人作品" -->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <com.cyld.lfcircle.ui.RoundImageView
+                android:id="@+id/ib_ershou"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:background="@null"
+                 />
+          <!--   android:src="@drawable/home_press" -->
+
+            <TextView
+                android:id="@+id/tv_ershou"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+              
+                android:textColor="#000" />
+             <!--  android:text="二手交换" -->
+        </LinearLayout>
+    </LinearLayout>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     
+    
+    
+    <ListView 
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></ListView>
+
+</LinearLayout>

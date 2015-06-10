@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.cyld.lfcircle"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="16" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 蓝牙分享所需的权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 访问网络imageloader -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <application
+        android:name="com.appliaction.MyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/zhanweitu"
+        android:label="@string/app_name"
+        android:theme="@style/AppBaseTheme" >
+        <activity
+            android:name="com.cyld.lfcircle.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Black.NoTitleBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- 引导页 -->
+        <!-- 话题页 -->
+        <activity android:name="com.cyld.lfcircle.TopicActivity" />
+        <!-- 圈子页 -->
+        <activity android:name="com.cyld.lfcircle.base.impl.CirclePager" />
+        <!-- 发表页面 -->
+        <activity android:name="com.cyld.lfcircle.PublishActivity" />
+        <!-- 帖子详情页 -->
+        <activity android:name="com.cyld.lfcircle.DetailsActivity" />
+        <!-- 评论详情页面 -->
+        <activity
+            android:name="com.cyld.lfcircle.CommentDetails"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <!-- 举报页面 -->
+        <activity android:name="com.cyld.lfcircle.ReportActivity" />
+        <!-- 定义Javabean对像 -->
+        <activity android:name="com.cyld.lfcircle.domain.GameListBean"/>
+        <!-- 圈子 -->
+        
+        <!-- 搜索页面 -->
+        <activity
+            android:name="com.cyld.lfcircle.SearchActivity"
+            android:theme="@android:style/Theme.Black.NoTitleBar" />
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" >
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- 八卦页面 -->
+        <activity android:name="com.cyld.lfcircle.base.impl.CirclePagerNet.BaguaActivity"
+              android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <!-- 单击页面 -->
+        <activity android:name="com.cyld.lfcircle.base.impl.CirclePagerNet.DanjiActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <!-- 同人界面 -->
+         <activity android:name="com.cyld.lfcircle.base.impl.CirclePagerNet.TongrenActivity"
+             android:theme="@android:style/Theme.Light.NoTitleBar"/>
+         <!-- 二手交换界面 -->
+         <activity android:name="com.cyld.lfcircle.base.impl.CirclePagerNet.ErshouActivity"
+             android:theme="@android:style/Theme.Light.NoTitleBar"/>
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        
+        <!-- 以下为加的activity -->
+        
+        <!-- 我的好友 -->
+        <activity android:name="com.cyld.lfcircle.MyfriendActivity" />
+
+        <!-- 收藏的话题 -->
+        <activity android:name="com.cyld.lfcircle.CollectTopic" />
+
+        <!-- 侧拉删除RefreshActivity -->
+        <activity
+            android:name="com.cyld.lfcircle.RefreshActivity"
+            android:label="@string/title_activity_refresh" >
+        </activity>
+
+        <!-- 我的话题 -->
+        <activity android:name="com.cyld.lfcircle.MyTopic" />
+
+        <!-- 编辑资料 -->
+        <activity android:name="com.cyld.lfcircle.EditActivity" />
+
+        <!-- 设置昵称 -->
+        <activity android:name="com.cyld.lfcircle.SetNick" />
+
+        <!-- 个人主页 -->
+        <activity android:name="com.cyld.lfcircle.PersonalMain" />
+
+        <!-- 登陆 -->
+        <activity android:name="com.cyld.lfcircle.LoginActivity" />
+
+        <!-- 注册1 -->
+        <activity android:name="com.cyld.lfcircle.Register1Activity" />
+
+        <!-- 注册2 -->
+        <activity android:name="com.cyld.lfcircle.Register2Activity" />
+
+        <!-- 注册3 -->
+        <activity android:name="com.cyld.lfcircle.Register3Activity" />
+
+        <!-- 更换头像 -->
+        <activity android:name="com.cyld.lfcircle.ChangeImage" />
+
+        <!-- 更换背景 -->
+        <activity android:name="com.cyld.lfcircle.ChangeBackimage" />
+
+        <!-- 找回密码1 -->
+        <activity android:name="com.cyld.lfcircle.FindPwd1Activity" />
+
+        <!-- 找回密码2 -->
+        <activity android:name="com.cyld.lfcircle.FindPwd2Activity" />
+
+        <!-- 找回密码3 -->
+        <activity android:name="com.cyld.lfcircle.FindPwd3Activity" />
+        
+        
+        
+        
+    </application>
+
+</manifest>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:color/black" >
+
+    <ImageButton
+            android:id="@+id/ib_list_topic_arrows_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@null"
+            android:padding="5dp"
+            android:src="@drawable/arrows_left" />
+
+        <TextView
+            android:id="@+id/tv_list_topic_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="话题列表"
+            android:textColor="#fff"
+            android:textSize="22sp" />
+
+        <ImageButton
+            android:id="@+id/ib_list_topic_inform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/ib_list_topic_publish"
+            android:background="@null"
+            android:src="@drawable/inform" />
+
+        <ImageButton
+            android:id="@+id/ib_list_topic_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@null"
+            android:src="@drawable/publish" />
+    </RelativeLayout>
+    <!--  -->
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/ht_bg"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageView
+                android:id="@+id/iv_pic"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="0dp"
+                android:background="@null"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/home_press" />
+
+            <TextView
+                android:id="@+id/textViewxj"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="14dp"
+                android:layout_toRightOf="@+id/iv_pic"
+                android:text="仙剑奇侠传" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/iv_pic"
+                android:layout_alignLeft="@+id/textView1"
+                android:layout_toRightOf="@+id/iv_pic"
+                android:layout_marginLeft="24dp"
+                android:text="话题：1000"
+                android:textColor="@color/gray" />
+            
+        </RelativeLayout>
+        <!--  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/iv_notice1"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/zhiding" />
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="123123" />
+        </LinearLayout>
+        <!--  -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/iv_notice2"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/zhiding" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="刘永杰刘永杰刘永杰" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/iv_notice3"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="10dp"
+                android:background="@null"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/zhiding" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="话题讨论" />
+        </LinearLayout>
+    </LinearLayout>
+    
+    
+    <!--  -->
+    <ListView 
+        android:id="@+id/lv_bagua"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        ></ListView>
+
+</LinearLayout>

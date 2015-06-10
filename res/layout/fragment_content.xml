@@ -1,0 +1,53 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <com.cyld.lfcircle.view.NoScrollViewPager
+        android:id="@+id/vp_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+<!-- android:background="@drawable/bottom_tab_bg" -->
+    <RadioGroup
+        android:id="@+id/rg_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:layout_gravity="center_vertical"
+        android:orientation="horizontal" >
+<!--  android:text="圈子" -->
+<!-- android:drawableTop="@drawable/btn_tab_home_selector" -->
+        <RadioButton
+            android:id="@+id/rb_circle"
+            style="@style/BottomTabStyle"           
+            android:background="@drawable/btn_tab_home_selector"
+             />
+ <!-- android:text="资讯"  -->
+        <RadioButton
+            android:id="@+id/rb_message"
+            style="@style/BottomTabStyle"
+            android:background="@drawable/btn_tab_zixun_selector"
+            />
+<!-- android:text="消息" -->
+        <RadioButton
+            android:id="@+id/rb_news"
+            style="@style/BottomTabStyle"
+            android:background="@drawable/btn_tab_xiaoxi_selector"
+             />
+<!-- android:text="娱乐"  -->
+        <RadioButton
+            android:id="@+id/rb_find"
+            style="@style/BottomTabStyle"
+            android:background="@drawable/btn_tab_yule_selector"
+             />
+ <!-- android:text="发现" -->
+        <RadioButton
+            android:id="@+id/rb_me"
+            style="@style/BottomTabStyle"
+            android:background="@drawable/btn_tab_faxian_selector"
+             />
+    </RadioGroup>
+
+</LinearLayout>

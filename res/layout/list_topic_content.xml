@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#11000000"
+    android:orientation="vertical" >
+
+    <!-- 话题列表页面 -->
+
+    <RelativeLayout
+        android:id="@+id/rl_topictitle"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@android:color/black" >
+
+        <ImageButton
+            android:id="@+id/ib_list_topic_arrows_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="16dp"
+            android:background="@null"
+            android:padding="5dp"
+            android:src="@drawable/arrows_left" />
+
+        <TextView
+            android:id="@+id/tv_list_topic_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="话题列表"
+            android:textColor="#fff"
+            android:textSize="22sp" />
+
+        <ImageButton
+            android:id="@+id/ib_list_topic_inform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:layout_toLeftOf="@+id/ib_list_topic_publish"
+            android:background="@null"
+            android:src="@drawable/inform" />
+
+        <ImageButton
+            android:id="@+id/ib_list_topic_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dp"
+            android:background="@null"
+            android:src="@drawable/publish" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_list_topic_comment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_topictitle" >
+    </ListView>
+
+    <FrameLayout
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/shape_shuaxinbutton" >
+
+        <ImageView
+            android:id="@+id/iv_shuaxin"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clickable="true"
+            android:src="@drawable/shuaxin" />
+    </FrameLayout>
+
+</RelativeLayout>
