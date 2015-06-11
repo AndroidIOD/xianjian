@@ -85,7 +85,7 @@
             android:maxLength="1000"
             android:paddingLeft="4dp"
             android:paddingRight="4dp" />
-
+         
         <Button
             android:id="@+id/btn_comment_to_topic"
             android:layout_width="60dp"

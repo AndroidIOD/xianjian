@@ -100,7 +100,6 @@
             android:background="@null"
             android:visibility="visible"
             android:src="@drawable/ic_add_pic" />
-
          <!-- 这是加载表情的代码 -->
 
  <!-- <EditText

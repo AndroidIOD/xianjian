@@ -1,10 +1,19 @@
 package com.cyld.lfcircle;
 
+import java.io.UnsupportedEncodingException;
+
+import org.apache.http.HttpException;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.protocol.HTTP;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -14,6 +23,8 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -25,6 +36,12 @@ import cn.sharesdk.framework.ShareSDK;
 import cn.sharesdk.onekeyshare.OnekeyShare;
 
 import com.cyld.lfcircle.utils.TreadToastUtils;
+import com.cyld.lfcircle.utils.Utils;
+import com.lidroid.xutils.HttpUtils;
+import com.lidroid.xutils.http.RequestParams;
+import com.lidroid.xutils.http.ResponseInfo;
+import com.lidroid.xutils.http.callback.RequestCallBack;
+import com.lidroid.xutils.http.client.HttpRequest.HttpMethod;
 
 public class DetailsActivity extends Activity implements OnClickListener {
 	private ImageButton ib_details_arrows_left;// 发表页返回的箭头
@@ -33,6 +50,8 @@ public class DetailsActivity extends Activity implements OnClickListener {
 	private Context mContext = null;// 上下文
 	static private GridView mGridView; // 菜单gridview
 	private ImageButton ib_floor_huifu;// 每个楼层回复的按钮
+	private Button btn_comment_to_topic ;
+	private  EditText  et_response ;
 	private static final String[] names = { "收藏", "分享", "跳转", "举报", "倒叙查看",
 			"提醒", "删除", };
 	private static final int[] icons = { R.drawable.item0, R.drawable.item1,
@@ -40,33 +59,106 @@ public class DetailsActivity extends Activity implements OnClickListener {
 			R.drawable.item5, R.drawable.item6, };
 	private View ll_details_header;
 	private PopupWindow pop; // popwindow窗口
-
+//JINTIANTAMADEYESHUIZHILE
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.details);
-		mContext = this;
+		btn_comment_to_topic = (Button)findViewById(R.id.btn_comment_to_topic);
 		
+		mContext = this;	
 		ib_details_arrows_left = (ImageButton) findViewById(R.id.ib_details_arrows_left);
-
 		bt_menu = (ImageButton) findViewById(R.id.bt_menu);
-
 		ib_details_arrows_left.setOnClickListener(this);
-
 		bt_menu.setOnClickListener(this);
-
-		ll_details_header = View.inflate(mContext, R.layout.details_header1,
-				null);
+		ll_details_header = View.inflate(mContext, R.layout.details_header1,null);
 		lv_floor = (ListView) findViewById(R.id.lv_floor);
 		lv_floor.addHeaderView(ll_details_header);
 		lv_floor.setAdapter(new FloorAdapter());
-
 		// 楼层
 		lv_floor.setOnItemClickListener(new FloorOnItemClickListener());
-
+      initListener();
 	}
+	private void initListener() {
+		// 监听发表按钮
+		btn_comment_to_topic.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// 解析数据
+				new Thread() {
+					@Override
+					public void run() {
+						parseData();
+					}
+				}.start();
+			}
+		});
+	}
+//		一下是获取网络服务器的代码zhentamaderiabaoelezaiwaibaosdonshigan
+		private void parseData() {
+			JSONObject json = new JSONObject();
+			try {
+				json.put("code", "20003");
+				json.put("topId", "3");
+				json.put("postsId", "2");
+				json.put("userId", "123");
+				json.put("T_ID", "1");
+				json.put("detail", "1");
+				json.put("title", "null");
+				json.put("P_tab", "1");
+//				json.put("title", et_publish_theme.getText().toString());
+//				json.put("detail", et_content_publish.getText().toString());
+//				json.put("ClientId", "2");
+			} catch (JSONException e) {
+				e.printStackTrace();
+			}
+			String url = "http://qzappservice.pcjoy.cn/Edit.ashx";
+			callService(url, json);
+		}
 
+		private void callService(String url, JSONObject json) {
+			HttpUtils utils = new HttpUtils();
+			RequestParams params = new RequestParams();
+
+			try {
+				params.setBodyEntity(new StringEntity(json.toString(), HTTP.UTF_8));
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+
+			utils.send(HttpMethod.POST, url, params, new RequestCallBack<String>() {
+
+				@Override
+				public void onSuccess(ResponseInfo<String> responseInfo) {
+					String json = responseInfo.result;
+					Log.e("aaaaaaaaaaarrr", json);
+					try {
+						JSONObject jo = new JSONObject(json);
+						if (jo.getString("result").equals("发表话题成功")) {
+							Utils.showToast(getApplicationContext(), "发表话题成功");
+//							PublishActivity.this.finish();
+						}
+						// Utils.showToast(getApplicationContext(), jo.result);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+
+				}
+
+				public void onFailure(HttpException error, String msg) {
+					Log.e("Fail::::::::::::::::", msg);
+				}
+
+				@Override
+				public void onFailure(
+						com.lidroid.xutils.exception.HttpException error, String msg) {
+					// TODO Auto-generated method stub
+					
+				}
+			});
+		}
+//		以上是获取网络代码
 	class FloorOnItemClickListener implements OnItemClickListener {
 
 		@Override
@@ -160,7 +252,7 @@ public class DetailsActivity extends Activity implements OnClickListener {
 			break;
 		}
 	}
-
+ 
 	/**
 	 * 回复按钮的弹出框
 	 * 
@@ -231,7 +323,7 @@ public class DetailsActivity extends Activity implements OnClickListener {
 			pop.showAsDropDown(vv, 0, 0);//放在vv的下面	
 		}
 	}
-
+//新人要研究一下...
 	/**
 	 * gridview的adapter
 	 * 
@@ -306,6 +398,7 @@ public class DetailsActivity extends Activity implements OnClickListener {
 
 		// 启动分享GUI
 		oks.show(this);
+		
 	}
 
 }

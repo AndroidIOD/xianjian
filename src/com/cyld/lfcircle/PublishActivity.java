@@ -1,5 +1,4 @@
 package com.cyld.lfcircle;
-
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +40,7 @@ public class PublishActivity extends Activity implements OnClickListener {
 	private PopupWindow popupWindow;
 
 	private GridView gridView;
-
+    private  GridView gridviews;
 	private ArrayList<HashMap<String, Object>> lstImageItem = new ArrayList<HashMap<String, Object>>();
 	
 //	、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、、
@@ -51,7 +50,7 @@ public class PublishActivity extends Activity implements OnClickListener {
 	private ImageButton  ib_biaoqing_publish ;
 	private EditText et_publish_theme;
 	private EditText et_content_publish;
-	private Button bt_publish;
+	private Button bt_publish;  //发表按钮
 	private Bitmap bitmap;
 	private static final int PHOTO_REQUEST_GALLERY = 1; //相册
 	private static final int PHOTO_REQUEST_CUT = 3;// 结果
@@ -74,9 +73,7 @@ public class PublishActivity extends Activity implements OnClickListener {
 		ib_tupian_publish.setOnClickListener(this);
 		ib_biaoqing_publish.setOnClickListener(this);
 		ib_add_pic.setOnClickListener(this);
-
 		initListener();
-
 	}
 
 	private void initListener() {
@@ -99,21 +96,18 @@ public class PublishActivity extends Activity implements OnClickListener {
 		
 //       监听添加表情按钮
 		ib_biaoqing_publish.setOnClickListener(new OnClickListener(){
-			public void onClick(View v) {
-		 
-				kkk(v);
-								
+			public void onClick(View v) {		 
+				kkk(v);							
 			}
-
 			private void kkk(View view) {
 				 View contentView = LayoutInflater.from(getApplication()).inflate(
 			                R.layout.popwindow_item, null);
 			        // 设置按钮的点击事件
-				 GridView button = (GridView) contentView.findViewById(R.id.gridview);
-			       
-			        final PopupWindow popupWindow = new PopupWindow(contentView,
+				     gridviews = (GridView) contentView.findViewById(R.id.gridview);
+//			         MyGridView mygridviews=new MyGridView();//定义MyGridViw
+		             popupWindow = new PopupWindow(contentView,
 			                 500, 500, true);
-
+                   
 			        popupWindow.setTouchable(true);
  
 			        // 如果不设置PopupWindow的背景，无论是点击外部区域还是Back键都无法dismiss弹框
@@ -212,21 +206,21 @@ public class PublishActivity extends Activity implements OnClickListener {
 	private void parseData() {
 		JSONObject json = new JSONObject();
 		try {
-			json.put("code", "20000");
+			json.put("code", "20003");
 			json.put("userId", "10005");
 			json.put("T_ID", "1");
 			json.put("title", et_publish_theme.getText().toString());
 			json.put("detail", et_content_publish.getText().toString());
 			json.put("ClientId", "2");
+			
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 
-		String url = "http://qzappservice.pcjoy.cn/Edit.ashx";
+    	String url = "http://qzappservice.pcjoy.cn/Edit.ashx";
 		callService(url, json);
-
 	}
-
+	 
 	private void callService(String url, JSONObject json) {
 		HttpUtils utils = new HttpUtils();
 		RequestParams params = new RequestParams();
@@ -268,7 +262,7 @@ public class PublishActivity extends Activity implements OnClickListener {
 			}
 		});
 	}
-
+	
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
